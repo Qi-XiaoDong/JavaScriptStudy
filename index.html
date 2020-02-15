@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>性能优化总结</title>
+</head>
+<body>
+  <div id="wrap"></div>
+  <script>
+    /**
+      1 页面级别优化
+          1 css Sprites(精灵图)
+            每张图片都会发送请求，就会占用带宽，增加 页面渲染事件
+          
+          2 使用CDN   
+            减少自己服务器的压力，直接使用提供库的CDN
+          
+          3 压缩合并代码
+
+          4 使用DNS预解析 
+            <link rel="dns-prefetch" href="//img12.360buyimg.com">  
+
+      2 代码级别优化
+          1. 减少DOM操作
+            ECMCScript ===> DOM
+
+          2 异步加载
+            js：(会停止页面加载，去加载js)js可以操作DOM 
+            defer：html 和 js 异步加载，当html
+            加载完后，执行js 
+            async：html 和 js 异步加载，当js加载完后 立即执行js，暂停html加载
+           使用场景：
+
+          3 事件代理：（也是减少了DOM操作）
+          
+          4 使用requestAnimationFrame(递归操作)代替 setTomeOut 和 setInterval
+            屏幕的绘制频率HZ：（60左右）
+            定时器执行的时间是不确定的：
+            如果时间间隔太小，定时器执行多次，浏览器没有刷新（丢帧）
+            如果时间间隔太长，浏览器刷新多次 定时没有执行（卡顿）
+            
+
+          5 图片懒加载
+
+
+    */
+
+    /*
+      减少DOM操作
+      1.直接操作 direct: 8594.81396484375ms （10000）
+      2 优化后 : optimization: 2.60791015625ms （1）
+      3 虚拟DOM是最好的方法；
+    */
+
+    // console.time('direct');
+    // for (var i = 0; i < 10000; i++ ) {
+    //   wrap.innerText += 'a'
+    // }
+    // console.timeEnd('direct')
+
+    // console.time('optimization');
+    // var str = "";
+    // for (var i = 0; i < 10000; i++ ) {
+    //   str += 'a'
+    // }
+    // wrap.innerText = str;
+    // console.timeEnd('optimization')
+
+
+    /*
+      
+    */
+
+  </script>
+</body>
+</html>
