@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+
+<body>
+	<script>
+		/*
+			自执行函数	立即调用的函数表达式
+					 
+			函数声明不能直接调用的原因
+			 	1、小括号里只能放表达式，不能放语句。当它做为函数调用的功能时，前面也只能放函数表达式，不能出现语句。
+			 	2、function关键字即可以当作语句，也可以当作表达式。但js规定function关键字出现在行首，一律解释成语句
+					 
+			 	解决方法：不要让function出现在行首
+			 		1、用括号把function主体括起来，转成表达式。后面加括号运行
+			 		2、借助运算符（new + - ! ~ typeof , && ||...）
+			 			因为运算符会把表达式执行，执行后得出结果了才能运算
+		*/
+
+		
+		function fn1(){
+			console.log('函数声明')
+		};
+		var fn2=function(){
+			console.log('函数表达式')
+		}();
+
+
+
+
+		/* (
+			if(true){
+				alert(1);
+			}
+		); */
+		//fn1();
+		//(1+2)*3
+
+
+
+
+		(function fn1(){
+			console.log('函数声明')
+		})();
+
+		(function fn1(){
+			console.log('函数声明')
+		}());
+
+
+
+		!function fn1(){
+			console.log('函数声明')
+		}();
+
+		+function fn1(){
+			console.log('函数声明')
+		}();
+
+		-function fn1(){
+			console.log('函数声明')
+		}();
+
+		0+function fn1(){
+			console.log('函数声明')
+		}();
+
+		true&&function fn1(){
+			console.log('函数声明')
+		}();
+
+		false || function fn1(){
+			console.log('函数声明')
+		}();
+
+		0,function fn1(){
+			console.log('函数声明')
+		}();
+
+		~function fn1(){
+			console.log('函数声明')
+		}();
+
+		typeof function fn1(){
+			console.log('函数声明')
+		}();
+	</script>
+</body>
+
+</html>

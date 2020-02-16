@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+
+<body>
+	<ul>
+		<li>red</li>
+		<li>green</li>
+		<li>blue</li>
+		<li>yeelow</li>
+		<li>pink</li>
+	</ul>
+	<script>
+		/* var lis=document.querySelectorAll('li');
+
+		for(var i=0;i<lis.length;i++){
+			(function(i){
+				lis[i].onclick=function(){
+					console.log(i);
+				}
+			})(i);
+		} */
+
+		//1 1 2
+		function fn1(){
+			var a=0;
+			function fn2(){
+				++a,alert(a);
+			}
+			return fn2;
+		}
+
+		/* fn1()	== 	function fn2(){
+						++a,alert(a);
+					} */
+
+		/* newFn	== function fn2(){
+						++a,alert(a);
+					} */
+		fn1()();
+		var newFn=fn1();
+		newFn();	//1
+		newFn();	//2
+
+
+	</script>
+</body>
+
+</html>

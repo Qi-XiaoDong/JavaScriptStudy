@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+
+<body>
+	<script>
+		//&&	||
+
+		console.log('kaivon' && 2 + 1);
+		console.log(![] && '你好！siri!');	//false
+
+		var n1=1;
+		n1-1&&(n1+=5);
+		console.log(n1);	//1
+
+		function fn1(){
+			console.log('陈学辉');
+		}
+		n1==1&&fn1();
+
+		/* if(n1==1){
+			fn1();
+		} */
+
+
+		console.log(true&&'kaivon'&&(3-2)&&'abc'&&true&&(2+2));	//4
+
+
+		console.log('kaivon'||2+1);	//kaivon
+
+		var n2=1;
+		n2-1||(n2+=5);
+		console.log(n2);	//6
+
+
+		function fn3(text){
+			text=text||'kaivon';
+			console.log(text);
+		}
+		fn3('陈学辉');
+
+
+		
+	</script>
+</body>
+
+</html>

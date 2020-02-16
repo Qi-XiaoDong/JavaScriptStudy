@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script>
+		 /*
+		 	1、函数声明
+		 		1、语法
+		 			function 函数名(参数){
+		 				要执行的代码
+		 			}
+		 
+		 		2、调用
+		 			1、函数名(参数)
+		 			2、函数名.call(函数名,参数)
+		 			3、函数名.apply(函数名,[参数])
+		 			4、new 函数名(参数)
+		 			5、定时器
+		 			6、把函数声明变成函数表达式再调用
+		 			7、ES6里的模版字符串
+		 
+		     2、函数表达式
+		 		语法
+		 			var/let/const 变量=function(参数){
+		 				要执行的代码
+		 			}
+		 
+		 		调用
+		 			1、变量(参数)
+		 			2、变量.call(变量,参数)
+		 			3、变量.apply(变量,[参数])
+		 			4、new 函数名(参数)
+		 			5、直接在后面加上一对小括号
+		 			6、定时器
+		 			7、ES6里的模版字符串
+		 */
+		 
+		function fn1(text){
+			console.log(text);
+		}
+
+		fn1('直接调用');
+		fn1.call(fn1,'用call调用');
+		fn1.apply(fn1,['用apply调用']);
+		new fn1('用new调用');
+		setTimeout(fn1('用定时器调用'));
+		fn1`用模板字符串调用`;
+		(function fn1(text){
+			console.log(text);
+		})('转成函数表达式后调用');
+
+
+		console.log('---------------------------------------------------------------------');
+
+
+		var fn2=function(text){
+			console.log(text);
+		};
+
+		fn2('直接调用');
+		fn2.call(fn2,'用call调用');
+		fn2.apply(fn2,['用apply调用']);
+		new fn2('用new调用');
+		setTimeout(fn2('用定时器调用'));
+		fn2`用模板字符串调用`;
+		var fn3=function(text){
+			console.log(text);
+		}('直接在后面加上一对小括号去调用');
+
+		document.onclick=function(){
+		};
+
+	</script>
+</body>
+</html>

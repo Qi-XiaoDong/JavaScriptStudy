@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script>
+		 /*
+         函数声明与函数表达式的区别
+         	1、函数声明必须带有标识符（函数名称），函数表达式则可以省略
+         		1、表达式里的名字不能在函数外面用，只能在函数内部用
+         		2、函数有一个name属性，指向紧跟在function关键字之后的那个函数名。如果函数表达式没有名字，那nam属性指向变量名
+         	2、函数声明会被预解析，函数表达式不会
+        */
+
+		
+		/* function fn(){
+			console.log('fn')
+		} */
+		//var fn2=undefined;
+
+
+		fn();
+		//fn2();
+
+		function fn(){
+			console.log('fn')
+		}
+		var fn2=function newFn(){
+			//console.log('fn2');
+			console.log(newFn);
+			//debugger;
+		}
+
+
+		/* fn();
+		fn2(); */
+		//newFn();
+
+
+
+	</script>
+</body>
+</html>

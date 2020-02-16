@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+
+<body>
+	<ul>
+		<li>red</li>
+		<li>green</li>
+		<li>blue</li>
+		<li>yeelow</li>
+		<li>pink</li>
+	</ul>
+	<script>
+		//for循环
+		/* for(var i=0;i<5;i++){
+			console.log(i);
+		} */
+
+		//定时器，作用域
+		/* for(var i=0;i<5;i++){
+			setTimeout(function(){
+				console.log(i);
+			},1000*i);
+		} */
+
+		//定时器，闭包
+		for(var i=0;i<5;i++){
+			(function(i){
+				setTimeout(function(){
+					console.log(i);
+				},1000*i);
+			})(i);
+		}
+
+
+		//
+		/* setTimeout(function(){
+			console.log(1);
+		},0); 
+		new Promise(function (resolve){
+			console.log(2);
+
+			for(var i=0;i<10000;i++){
+				i==9999&&resolve();
+			}
+
+			console.log(3)
+		}).then(function(){
+			console.log(4);
+		});
+		console.log(5); */
+	</script>
+</body>
+
+</html>
