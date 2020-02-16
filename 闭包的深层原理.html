@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>原理</title>
+</head>
+<body>
+  <script>
+    /*
+      需要了解 
+      1 变量的生命周期   
+        1 局部变量的生命周期比较短，在函数执行结束后生命周期就结束了
+        2 全局变量的生命周期比较长，当页面关闭后生命周期就结束了
+            为什么不建议使用全局变量：
+              1）因为在页面运行期间会一直占用着内存
+              2）全局变量会挂载到window上可能会和默认window原有属性冲突
+              3）性能比较低，变量的查询也是需要时间的，嵌套过深效率就会低
+
+      2 垃圾回收机制，目的： 用来释放内存的，
+          主流策略方法： 标记清除，引用计数
+      ****如果有数据有引用关系就不会被回收
+
+      3 执行上下文（当前代码的执行环境，EC）
+        1 全局环境，
+        2 函数环境，
+        3 evel环境
+
+      4 函数调用栈（ECS）
+        变量对象
+
+      普通函数定义函数时是嵌套的，调用时也是嵌套的
+      闭包函数定义函数时是嵌套的，调用时是独立的
+    */
+
+// 生命周期
+  
+      // function fn1 () {
+      //   var a = 1;
+      // }
+      // fn1() // 执行时产生a变量，执行完a变量生命周期结束
+      // console.log(a) 
+    
+
+/* 
+  普通调用时 call stack = []
+
+  第一步（全局环境）              [globalEC]
+  第二步（father函数环境）        [fatherEC，globalEC]
+  第三步 （son函数环境）          [sonEC, fatherEC，globalEC]
+  第四步 （son执行完）            [fatherEC，globalEC]
+  第五步 （father执行完）         [globalEC]
+  第六步 （程序执行完）           [], 
+
+*/ 
+    
+    // function father () {
+    //   debugger;
+    //   function son () {
+    //     debugger;
+    //   }
+    //  son();
+    // }
+    // debugger;
+    // father();
+
+/*
+    闭包调用时
+    第一步（全局环境）                [globalEC]
+    第二步（father函数环境）          [fatherEC，globalEC]
+    第三步 （father执行完）           [globalEC]
+    第四步 （son函数环境）            [sonEC globalEC]
+    第五步 （son执行完）              [globalEC]
+    第六步 （程序执行完）             [], 
+*/
+
+    // function father () {
+    //   var n = 30; 
+    //   function son () {
+    //     n++
+    //     debugger;
+    //   }
+    //   debugger;
+    //   return son;
+    // }
+    // debugger;
+    // var result = father();
+    // debugger;
+    // result();
+
+
+  /*
+    执行期上下文EC放在调用栈ECS后代码执行前
+
+    创建EC后需要走两个阶段
+      1 创建阶段
+      2 代码执行阶段
+
+    创建阶段：
+      fatherEC = {
+        VO ：{ // 变量对象
+          n ： undefined
+          son ： 'son在内存的引用地址'
+        },
+        scope : [ // 存储作用域链
+          global.AO
+        ],
+        this : 'window'
+      }
+    执行阶段：
+       fatherEC = {
+        AO ：{ //活跃对象
+          n ： 30
+          son ： 'son在内存的引用地址'
+        },
+        scope : [ // 存储作用域链
+        father.AO  ，global.AO
+        ],
+        this : 'window'
+      }
+
+
+      创建阶段：
+      sonEC = {
+        VO ：{ },
+        scope : [ // 存储作用域链
+         father.AO， global.AO
+        ],
+        this : 'window'
+      }
+    执行阶段：
+       fatherEC = {
+        AO ：{ },
+        scope : [ // 存储作用域链
+          son.AO，father.AO  ，global.AO
+        ],
+        this : 'window'
+      }
+
+
+
+
+ 
+
+
+
+
+  */
+
+
+
+
+
+   
+          
+  </script>
+</body>
+</html>

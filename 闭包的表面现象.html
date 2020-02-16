@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>表面现象</title>
+</head>
+<body>
+  <script>
+    /*
+      定义 ：  由父函数和子函数组成， 
+              子函数读取父函数的变量，
+              子函数调用
+    */
+
+/* 
+    function fn1 () {
+      var n = 1;
+      function fn2 () {
+        n++;
+        console.log(n);
+      }
+      fn2()
+    }
+ */
+
+
+
+    /*  不是闭包，因为子函数调用时没有使用到父函数的变量
+     function father () {
+        var  n = 1;
+        function son () {
+          var n = 2;
+          n++;
+          console.log(n);
+        }
+        return son;
+      }
+      var result = father () ;
+      result();
+ */
+
+  </script>
+</body>
+</html>

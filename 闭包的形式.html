@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>形式</title>
+</head>
+<body>
+  <script>
+    // var a = 20;
+    // function wrapFn () { // 闭包函数 
+    //   var b = 10;
+    //   function innerFn (b) {
+    //     console.log(b);
+    //     debugger;
+    //   }
+    //   return innerFn;
+    // }
+    // var fn = wrapFn();
+    // fn(a);
+
+    // function wrapFn () {
+    //   var a = 10;
+    //   return function () { // 闭包函数
+    //     var b = 20;
+    //     return function () {
+    //       console.log(b);
+    //       console.log(a);
+    //       debugger;
+    //     }
+    //   }
+    // }
+    // var son = wrapFn()()();
+
+
+    function wrapFn () {
+        var a = 10;
+        function innerFn1 () {
+          return a;
+        }
+        function innerFn2 () {
+          debugger;
+        }
+        innerFn2();
+      }
+      wrapFn();
+
+    
+  </script>
+</body>
+</html>
